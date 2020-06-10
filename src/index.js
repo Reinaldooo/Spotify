@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 //
 import './styles/globalStyles.scss'
-import { App } from './containers';
+import { App } from './statefull';
 
 ReactDOM.render(
   <App />,

@@ -1,11 +1,13 @@
-import Loading from './Loading/Loading';
+// import Loading from './Loading/Loading';
 import Logo from './Logo/Logo';
-import RouteHeader from './RouteHeader/RouteHeader';
-import WelcomeBox from './WelcomeBox/WelcomeBox';
+// import RouteHeader from './RouteHeader/RouteHeader';
+// import WelcomeBox from './WelcomeBox/WelcomeBox';
+import Login from './Login/Login';
 
 export {
-  Loading,
+  // Loading,
   Logo,
-  RouteHeader,
-  WelcomeBox,
+  // RouteHeader,
+  // WelcomeBox,
+  Login
 }
