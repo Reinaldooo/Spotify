@@ -7,7 +7,7 @@ import rootReducer from '../reducers';
 const persistConfig = {
   key: 'spotifyStorage',
   storage,
-  blacklist: ['content', 'auth'],
+  blacklist: ['content'],
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

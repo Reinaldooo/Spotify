@@ -7,11 +7,11 @@ import {
 import { useSelector } from 'react-redux';
 
 const PrivateRoute = ({ comp: Component, ...rest }) => {
-  const isLogged = useSelector(state => state.auth.isLogged);
+  const { isLogged, expirationTime } = useSelector(state => state.auth);
 
   return (
     <Route {...rest} render={props =>
-      !isLogged
+      !isLogged || Date.now() > expirationTime
         ? (<Redirect to="/" />)
         : (<Component {...props} />)
     } />
@@ -19,4 +19,3 @@ const PrivateRoute = ({ comp: Component, ...rest }) => {
 }
 
 export default PrivateRoute;
-

@@ -1,5 +1,6 @@
 import { 
-  AUTH_CALLBACK_SUCCESS
+  AUTH_CALLBACK_SUCCESS,
+  LOGOUT
  } from "../actions"
 
 const authInitialState = {
@@ -24,6 +25,8 @@ const authReducer = (state = authInitialState, action) => {
         ...payload,
         isLogged: true
       };
+    case LOGOUT:
+      return authInitialState;
     default:
       return state
   }
