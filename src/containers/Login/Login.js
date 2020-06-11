@@ -1,8 +1,10 @@
+// This is not a container, it's just here to pass on codenation tests since they setup the tests this way.
+
 import React from 'react';
 //
 import './Login.scss';
-import { endpoints } from '../../services/api';
-import { Logo } from '../../stateless';
+import { getAuthorization } from '../../services/api';
+import { Logo } from '../../components';
 
 export default function Login() {
   return (
@@ -17,7 +19,7 @@ export default function Login() {
           Música para todos.
         </h2>
 
-        <a href={endpoints.getAuthorization().url} className="login__auth-button">
+        <a href={getAuthorization().url} className="login__auth-button">
           Entrar
         </a>
       </div>

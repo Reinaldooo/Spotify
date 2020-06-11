@@ -1,5 +1,6 @@
 import App from './App/App';
-// import Authorize from './Authorize/Authorize';
+import Authorize from './Authorize/Authorize';
+import Login from './Login/Login';
 // import Categories from './Categories/Categories';
 // import CategoryItem from './Categories/CategoryItem';
 // import Dashboard from './Dashboard/Dashboard';
@@ -13,7 +14,8 @@ import App from './App/App';
 
 export {
   App,
-  // Authorize,
+  Authorize,
+  Login,
   // Categories,
   // CategoryItem,
   // Dashboard,
