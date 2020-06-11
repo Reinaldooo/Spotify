@@ -5,7 +5,7 @@ const contentInitialState = {
   playingNowId: null,
   playingNowTrack: null,
   playerHeight: 0,
-  status: 'idle',
+  categoriesLoading: false,
   errorMessage: "",
 }
 
