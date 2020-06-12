@@ -5,9 +5,11 @@ import {
   PLAYLISTS_LOADING,
   PLAYLISTS_SUCCESS,
   PLAYLISTS_ERROR,
+  PLAYLISTS_CLEAR,
   PLAYLIST_TRACKS_LOADING,
   PLAYLIST_TRACKS_SUCCESS,
   PLAYLIST_TRACKS_ERROR,
+  PLAYLIST_TRACKS_CLEAR,
   ADD_TRACK,
   REMOVE_TRACK
 } from "../actions";
@@ -62,6 +64,11 @@ const contentReducer = (state = contentInitialState, action) => {
         playlistsLoading: false,
         hasErrored: true,
       };
+    case PLAYLISTS_CLEAR:
+      return {
+        ...state,
+        playlists: []
+      };
     case PLAYLIST_TRACKS_LOADING:
       return {
         ...state,
@@ -78,6 +85,11 @@ const contentReducer = (state = contentInitialState, action) => {
         ...state,
         tracksLoading: false,
         hasErrored: true,
+      };
+    case PLAYLIST_TRACKS_CLEAR:
+      return {
+        ...state,
+        tracks: []
       };
     case ADD_TRACK:
       return {

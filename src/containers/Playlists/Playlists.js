@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 //
 import "./Playlists.scss";
 import { Loading, RouteHeader } from "../../components";
+import { clearTracks } from "../../actions";
 import PlaylistItem from "./PlaylistItem";
 // This is just here to pass the tests, since for some reason 
 // they can't read the 'data'prop
@@ -49,6 +51,14 @@ export default function Playlists({
   isLoading,
   path
 }) {
+  const dispatch = useDispatch()
+  const { tracks } = useSelector((state) => state.content);
+
+  useEffect(() => {
+    // Clear tracks so the next playlist clicked doesn't have 
+    // wrong values on first render
+    if(tracks[0]) dispatch(clearTracks());
+  });
 
   return (
     <div className="playlists" data-testid="playlists">

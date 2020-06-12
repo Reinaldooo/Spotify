@@ -3,16 +3,26 @@ import { useDispatch, useSelector } from "react-redux";
 import { Switch, useRouteMatch, Route } from "react-router-dom";
 //
 import { defaultFetchOptions, getCategories } from "../services/api";
-import { WelcomeBox, PrivateRoute, Dashboard, Error404, ContentError } from "../components";
+import {
+  WelcomeBox,
+  PrivateRoute,
+  Dashboard,
+  Error404,
+  ContentError,
+} from "../components";
 import { Categories, Topbar, PlayerOpen } from "../containers";
-import { setCategoriesLoading, setCategoriesSuccess, setCategoriesError } from "../actions";
+import {
+  setCategoriesLoading,
+  setCategoriesSuccess,
+  setCategoriesError,
+} from "../actions";
 import PlaylistsRoute from "../routes/PlaylistsRoute";
 import TracksRoute from "../routes/TracksRoute";
 
 export default function DashboardRoute() {
   const { auth, content } = useSelector((state) => state);
   const { path } = useRouteMatch();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); 
 
   useEffect(() => {
     const requestOptions = {
