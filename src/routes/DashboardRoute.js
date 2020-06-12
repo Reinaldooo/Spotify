@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Switch, useRouteMatch } from "react-router-dom";
+import { Switch, useRouteMatch, Route } from "react-router-dom";
 //
 import { defaultFetchOptions, getCategories } from "../services/api";
-import { WelcomeBox, PrivateRoute, Dashboard } from "../components";
+import { WelcomeBox, PrivateRoute, Dashboard, Error404 } from "../components";
 import { Categories, Topbar, Player } from "../containers";
 import { setCategoriesLoading, setCategoriesSuccess, setCategoriesError } from "../actions";
+import PlaylistsRoute from "../routes/PlaylistsRoute";
 
 export default function DashboardRoute() {
   const { auth, content } = useSelector((state) => state);
@@ -18,7 +19,7 @@ export default function DashboardRoute() {
       headers: { Authorization: `Bearer ${auth.accessToken}` },
     };
 
-    dispatch(setCategoriesLoading(true))
+    dispatch(setCategoriesLoading())
 
     fetch(getCategories().url, requestOptions)
       .then((data) => data.json())
@@ -28,21 +29,25 @@ export default function DashboardRoute() {
       .catch((error) => {
         dispatch(setCategoriesError(error))
       });
-
   }, [auth, dispatch]);
 
   return (
     <Dashboard>
       <Topbar />
       <Switch>
+
         <PrivateRoute exact path={path}>
           <WelcomeBox name={auth.name} />
           <Categories
-            loading={content.categoriesLoading}
+            isLoading={content.categoriesLoading}
             data={content.categories}
-            path={path}
           />
         </PrivateRoute>
+
+        <PrivateRoute exact path={`${path}/:categoryId`}>
+          <PlaylistsRoute path={path} />
+        </PrivateRoute>
+        <Route component={Error404}/>
       </Switch>
       <Player />
     </Dashboard>

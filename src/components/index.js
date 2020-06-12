@@ -4,6 +4,7 @@ import Loading from './Loading/Loading';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import WelcomeBox from './WelcomeBox/WelcomeBox';
 import Error404 from './Error404/Error404';
+import RouteHeader from './RouteHeader/RouteHeader';
 
 export {
   Logo,
@@ -11,5 +12,6 @@ export {
   PrivateRoute,
   WelcomeBox,
   Dashboard,
-  Error404
+  Error404,
+  RouteHeader
 }

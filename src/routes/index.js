@@ -11,7 +11,7 @@ export default function Routes() {
     <Switch>
       <Route exact path="/" component={StartRoute} />
       <Route exact path="/auth" component={AuthRoute} />
-      <PrivateRoute exact path="/dashboard" comp={DashboardRoute} />
+      <PrivateRoute path="/dashboard" comp={DashboardRoute} />
       <Route component={Error404}/>
     </Switch>
   );

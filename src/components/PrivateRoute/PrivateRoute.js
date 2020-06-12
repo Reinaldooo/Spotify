@@ -1,21 +1,23 @@
-import React from 'react';
+import React from "react";
 
-import {
-  Route,
-  Redirect,
-} from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { Route, Redirect } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const PrivateRoute = ({ comp: Component, ...rest }) => {
-  const { isLogged, expirationTime } = useSelector(state => state.auth);
+  const { isLogged, expirationTime } = useSelector((state) => state.auth);
 
   return (
-    <Route {...rest} render={props =>
-      !isLogged || Date.now() > expirationTime
-        ? (<Redirect to="/" />)
-        : (<Component {...props} />)
-    } />
+    <Route
+      {...rest}
+      render={(props) =>
+        !isLogged || Date.now() > expirationTime ? (
+          <Redirect to="/" />
+        ) : (
+          <Component {...props} />
+        )
+      }
+    />
   );
-}
+};
 
 export default PrivateRoute;
