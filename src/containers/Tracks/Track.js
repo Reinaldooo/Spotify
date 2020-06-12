@@ -3,17 +3,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { BsPlayFill, BsVolumeUpFill } from 'react-icons/bs';
 //
 import './Track.scss';
+import { addTrack, removeTrack } from '../../actions';
 
 
 export default function Track({ track }) {
   const playingNowId = useSelector(state => state.content.playingNowId);
   const [isPlaying, setIsPlaying] = useState(false);
+  const dispatch = useDispatch();
 
   const handleClick = () => {
     if (isPlaying && playingNowId === track.id) {
       setIsPlaying(false);
+      dispatch(removeTrack());
       return;
     }
+    dispatch(addTrack(track));
     setIsPlaying(!isPlaying);
   };
 

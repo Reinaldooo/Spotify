@@ -7,6 +7,8 @@ export const PLAYLISTS_ERROR = "PLAYLISTS_ERROR";
 export const PLAYLIST_TRACKS_LOADING = "PLAYLIST_TRACKS_LOADING";
 export const PLAYLIST_TRACKS_SUCCESS = "PLAYLIST_TRACKS_SUCCESS";
 export const PLAYLIST_TRACKS_ERROR = "PLAYLIST_TRACKS_ERROR";
+export const ADD_TRACK = "ADD_TRACK";
+export const REMOVE_TRACK = "REMOVE_TRACK";
 
 export const setCategoriesLoading = () => {
   return {
@@ -64,3 +66,19 @@ export const setPlaylistTracksError = () => {
     type: PLAYLIST_TRACKS_ERROR,
   };
 };
+// Tracks
+
+export const addTrack = (track) => {
+  return {
+    type: ADD_TRACK,
+    payload: track
+  };
+};
+
+export const removeTrack = (track) => {
+  return {
+    type: REMOVE_TRACK,
+    payload: track
+  };
+};
+

@@ -8,6 +8,8 @@ import {
   PLAYLIST_TRACKS_LOADING,
   PLAYLIST_TRACKS_SUCCESS,
   PLAYLIST_TRACKS_ERROR,
+  ADD_TRACK,
+  REMOVE_TRACK
 } from "../actions";
 
 const contentInitialState = {
@@ -76,6 +78,18 @@ const contentReducer = (state = contentInitialState, action) => {
         ...state,
         tracksLoading: false,
         hasErrored: true,
+      };
+    case ADD_TRACK:
+      return {
+        ...state,
+        playingNowId: payload.id,
+        playingNowTrack: payload,
+      };
+    case REMOVE_TRACK:
+      return {
+        ...state,
+        playingNowId: null,
+        playingNowTrack: null,
       };
     default:
       return state;
