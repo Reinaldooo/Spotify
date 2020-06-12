@@ -4,6 +4,9 @@ export const CATEGORIES_ERROR = "CATEGORIES_ERROR";
 export const PLAYLISTS_LOADING = "PLAYLISTS_LOADING";
 export const PLAYLISTS_SUCCESS = "PLAYLISTS_SUCCESS";
 export const PLAYLISTS_ERROR = "PLAYLISTS_ERROR";
+export const PLAYLIST_TRACKS_LOADING = "PLAYLIST_TRACKS_LOADING";
+export const PLAYLIST_TRACKS_SUCCESS = "PLAYLIST_TRACKS_SUCCESS";
+export const PLAYLIST_TRACKS_ERROR = "PLAYLIST_TRACKS_ERROR";
 
 export const setCategoriesLoading = () => {
   return {
@@ -18,10 +21,9 @@ export const setCategoriesSuccess = (data) => {
   };
 };
 
-export const setCategoriesError = (error) => {
+export const setCategoriesError = () => {
   return {
     type: PLAYLISTS_ERROR,
-    payload: error
   };
 };
 // Playlists
@@ -38,9 +40,27 @@ export const setPlaylistsSuccess = (data) => {
   };
 };
 
-export const setPlaylistsError = (error) => {
+export const setPlaylistsError = () => {
   return {
     type: PLAYLISTS_ERROR,
-    payload: error
+  };
+};
+// Playlist tracks
+export const setPlaylistTracksLoading = () => {
+  return {
+    type: PLAYLIST_TRACKS_LOADING
+  };
+};
+
+export const setPlaylistTracksSuccess = (data) => {
+  return {
+    type: PLAYLIST_TRACKS_SUCCESS,
+    payload: data
+  };
+};
+
+export const setPlaylistTracksError = () => {
+  return {
+    type: PLAYLIST_TRACKS_ERROR,
   };
 };

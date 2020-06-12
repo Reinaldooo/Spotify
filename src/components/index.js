@@ -5,6 +5,7 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import WelcomeBox from './WelcomeBox/WelcomeBox';
 import Error404 from './Error404/Error404';
 import RouteHeader from './RouteHeader/RouteHeader';
+import ContentError from './ContentError/ContentError';
 
 export {
   Logo,
@@ -13,5 +14,6 @@ export {
   WelcomeBox,
   Dashboard,
   Error404,
-  RouteHeader
+  RouteHeader,
+  ContentError
 }

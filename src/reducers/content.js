@@ -4,8 +4,11 @@ import {
   CATEGORIES_ERROR,
   PLAYLISTS_LOADING,
   PLAYLISTS_SUCCESS,
-  PLAYLISTS_ERROR
-} from "../actions"
+  PLAYLISTS_ERROR,
+  PLAYLIST_TRACKS_LOADING,
+  PLAYLIST_TRACKS_SUCCESS,
+  PLAYLIST_TRACKS_ERROR,
+} from "../actions";
 
 const contentInitialState = {
   categories: [],
@@ -13,9 +16,11 @@ const contentInitialState = {
   tracks: [],
   playingNowId: null,
   playingNowTrack: null,
-  loading: false,
-  errorMessage: "",
-}
+  categoriesLoading: false,
+  playlistsLoading: false,
+  tracksLoading: false,
+  hasErrored: false,
+};
 
 const contentReducer = (state = contentInitialState, action) => {
   const { type, payload } = action;
@@ -24,40 +29,57 @@ const contentReducer = (state = contentInitialState, action) => {
     case CATEGORIES_LOADING:
       return {
         ...state,
-        loading: true
-      }
+        categoriesLoading: true,
+      };
     case CATEGORIES_SUCCESS:
       return {
         ...state,
-        loading: false,
-        categories: payload
-      }
+        categoriesLoading: false,
+        categories: payload,
+      };
     case CATEGORIES_ERROR:
       return {
         ...state,
-        loading: false,
-        errorMessage: payload
-      }
+        categoriesLoading: false,
+        hasErrored: true,
+      };
     case PLAYLISTS_LOADING:
-    return {
-      ...state,
-      loading: true
-    }
+      return {
+        ...state,
+        playlistsLoading: true,
+      };
     case PLAYLISTS_SUCCESS:
       return {
         ...state,
-        loading: false,
-        playlists: payload
-      }
+        playlistsLoading: false,
+        playlists: payload,
+      };
     case PLAYLISTS_ERROR:
       return {
         ...state,
-        loading: false,
-        errorMessage: payload
-      }
+        playlistsLoading: false,
+        hasErrored: true,
+      };
+    case PLAYLIST_TRACKS_LOADING:
+      return {
+        ...state,
+        tracksLoading: true,
+      };
+    case PLAYLIST_TRACKS_SUCCESS:
+      return {
+        ...state,
+        tracksLoading: false,
+        tracks: payload,
+      };
+    case PLAYLIST_TRACKS_ERROR:
+      return {
+        ...state,
+        tracksLoading: false,
+        hasErrored: true,
+      };
     default:
-      return state
+      return state;
   }
-}
+};
 
 export default contentReducer;

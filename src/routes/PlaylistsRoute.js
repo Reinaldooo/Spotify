@@ -8,6 +8,7 @@ import {
   setPlaylistsError
 } from '../actions';
 import { Playlists } from '../containers';
+import { ContentError } from '../components';
 import { defaultFetchOptions, getCategoryPlaylists } from '../services/api';
 
 export default function PlaylistsRoute({ path }) {
@@ -30,18 +31,20 @@ export default function PlaylistsRoute({ path }) {
         dispatch(setPlaylistsSuccess(playlists.items))
       })
       .catch((error) => {
-        dispatch(setPlaylistsError(error))
+        dispatch(setPlaylistsError())
       });
 
   }, [auth, categoryId, dispatch]);
 
-  return (
+  return !content.hasErrored ? (
     <Playlists
       categoryId={categoryId}
       categoryName={categoryName}
       data={content.playlists}
-      isLoading={content.loading}
+      isLoading={content.playlistsLoading}
       path={path}
     />
-  );
+  ) : (
+    <ContentError />
+  )
 }
