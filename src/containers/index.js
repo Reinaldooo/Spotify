@@ -6,7 +6,9 @@ import Topbar from './Topbar/Topbar';
 import Categories from './Categories/Categories';
 import CategoryItem from './Categories/Categories';
 import Playlists from './Playlists/Playlists';
-import PlaylistItem from './Playlists/Playlists';
+import PlaylistItem from './Playlists/PlaylistItem';
+import Tracks from './Tracks/Tracks';
+import Track from './Tracks/Track';
 
 export {
   App,
@@ -17,5 +19,7 @@ export {
   Categories,
   CategoryItem,
   Playlists,
-  PlaylistItem
+  PlaylistItem,
+  Tracks,
+  Track
 }

@@ -10,10 +10,7 @@ export default function CategoryItem({ id, icon, name }) {
       style={{ backgroundImage: `url(${icon.url})` }}
     >
       <Link
-        to={{
-          pathname: `${url}/${id}`,
-          state: { categoryName: name },
-        }}
+        to={`${url}/${id}`}
         className="categories__item__link"
       >
         <span className="categories__item__title">{name}</span>

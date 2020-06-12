@@ -15,3 +15,8 @@ export const getInfoFromUrlHash = (urlHash) => {
 }
 
 export const camelCase = (string) => string.replace(/([-_]\w)/g, g => g[1].toUpperCase())
+
+export const getNameById = (id, arr) => {
+  if (!id || arr.length === 0) return '';
+  return arr.find((item) => item.id === id).name
+}

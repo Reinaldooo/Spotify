@@ -8,12 +8,15 @@ import {
   setPlaylistTracksError
 } from '../actions';
 import { defaultFetchOptions, getPlaylistTracks } from '../services/api';
+import { getNameById } from '../services/utils';
 import { ContentError } from '../components';
+import { Tracks } from '../containers';
 
-const TracksRoute = () => {
+const TracksRoute = ({ path }) => {
   const { auth, content } = useSelector(state => state);
   const dispatch = useDispatch();
-  const { playlistId } = useParams();
+  const { playlistId, categoryId } = useParams();
+  const backPath = `${path}/${categoryId}`
 
   useEffect(() => {
     const requestOptions = {
@@ -33,7 +36,12 @@ const TracksRoute = () => {
   }, [auth, playlistId, dispatch]);
 
   return !content.hasErrored ? (
-    <h3>Tracks</h3>
+    <Tracks
+      playlistName={getNameById(playlistId, content.playlists)}
+      data={content.tracks}
+      isLoading={content.tracksLoading}
+      backPath={backPath}
+    />
   ) : (
     <ContentError/>
   )

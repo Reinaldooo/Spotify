@@ -53,7 +53,7 @@ export default function Playlists({
   return (
     <div className="playlists" data-testid="playlists">
       <div className="container">
-        <RouteHeader categoryName={categoryName} path={path} />
+        <RouteHeader name={categoryName} path={path} />
 
         {isLoading ? (
           <Loading text="Carregando..." />

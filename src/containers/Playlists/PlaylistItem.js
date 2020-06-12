@@ -21,7 +21,6 @@ export default function PlaylistItem({
 
       <p className="playlists__item__description">
         <strong>{name}</strong>
-
         {description}
       </p>
     </div>

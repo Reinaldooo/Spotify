@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 //
 import {
@@ -10,12 +10,12 @@ import {
 import { Playlists } from '../containers';
 import { ContentError } from '../components';
 import { defaultFetchOptions, getCategoryPlaylists } from '../services/api';
+import { getNameById } from '../services/utils';
 
 export default function PlaylistsRoute({ path }) {
   const dispatch = useDispatch();
   const { auth, content } = useSelector(state => state);
   const { categoryId } = useParams();
-  const { state: { categoryName } } = useLocation();
 
   useEffect(() => {
     const requestOptions = {
@@ -39,7 +39,7 @@ export default function PlaylistsRoute({ path }) {
   return !content.hasErrored ? (
     <Playlists
       categoryId={categoryId}
-      categoryName={categoryName}
+      categoryName={getNameById(categoryId, content.categories)}
       data={content.playlists}
       isLoading={content.playlistsLoading}
       path={path}

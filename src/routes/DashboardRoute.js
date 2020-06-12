@@ -56,7 +56,7 @@ export default function DashboardRoute() {
         </PrivateRoute>
 
         <PrivateRoute exact path={`${path}/:categoryId/:playlistId`}>
-          <TracksRoute />
+          <TracksRoute path={path}/>
         </PrivateRoute>
 
         <Route component={Error404}/>
