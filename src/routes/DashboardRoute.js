@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Switch, useRouteMatch } from "react-router-dom";
-
+//
 import { defaultFetchOptions, getCategories } from "../services/api";
 import { WelcomeBox, PrivateRoute, Dashboard } from "../components";
 import { Categories, Topbar, Player } from "../containers";
+import { setCategoriesLoading, setCategoriesSuccess, setCategoriesError } from "../actions";
 
 export default function DashboardRoute() {
-  const [cat, setCat] = useState([])
   const { auth, content } = useSelector((state) => state);
   const { path } = useRouteMatch();
   const dispatch = useDispatch();
@@ -18,14 +18,17 @@ export default function DashboardRoute() {
       headers: { Authorization: `Bearer ${auth.accessToken}` },
     };
 
-    // dispatch loading
+    dispatch(setCategoriesLoading(true))
 
     fetch(getCategories().url, requestOptions)
       .then((data) => data.json())
-      .then((data) => setCat(data.categories.items))
-      // .then((data) => console.log(data.categories))
+      .then(({ categories }) => {
+        dispatch(setCategoriesSuccess(categories.items))
+      })
+      .catch((error) => {
+        dispatch(setCategoriesError(error))
+      });
 
-      .catch((error) => {});
   }, [auth, dispatch]);
 
   return (
@@ -36,7 +39,7 @@ export default function DashboardRoute() {
           <WelcomeBox name={auth.name} />
           <Categories
             loading={content.categoriesLoading}
-            data={cat}
+            data={content.categories}
             path={path}
           />
         </PrivateRoute>
