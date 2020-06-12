@@ -1,7 +1,8 @@
 import App from './App/App';
 import Authorize from './Authorize/Authorize';
 import Login from './Login/Login';
-import Player from './Player/Player';
+import PlayerOpen from './PlayerOpen/PlayerOpen';
+// import PlayerPremium from './PlayerPremium/PlayerPremium';
 import Topbar from './Topbar/Topbar';
 import Categories from './Categories/Categories';
 import CategoryItem from './Categories/Categories';
@@ -14,7 +15,8 @@ export {
   App,
   Authorize,
   Login,
-  Player,
+  PlayerOpen,
+  // PlayerPremium,
   Topbar,
   Categories,
   CategoryItem,

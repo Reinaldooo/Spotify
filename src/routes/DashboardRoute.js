@@ -4,7 +4,7 @@ import { Switch, useRouteMatch, Route } from "react-router-dom";
 //
 import { defaultFetchOptions, getCategories } from "../services/api";
 import { WelcomeBox, PrivateRoute, Dashboard, Error404, ContentError } from "../components";
-import { Categories, Topbar, Player } from "../containers";
+import { Categories, Topbar, PlayerOpen } from "../containers";
 import { setCategoriesLoading, setCategoriesSuccess, setCategoriesError } from "../actions";
 import PlaylistsRoute from "../routes/PlaylistsRoute";
 import TracksRoute from "../routes/TracksRoute";
@@ -36,19 +36,16 @@ export default function DashboardRoute() {
     <Dashboard>
       <Topbar />
       <Switch>
-
         <PrivateRoute exact path={path}>
           <WelcomeBox name={auth.name} />
-          {
-            !content.hasErrored ? (
-              <Categories
-                isLoading={content.categoriesLoading}
-                data={content.categories}
-              />
-            ) : (
-              <ContentError/>
-            )
-          }
+          {!content.hasErrored ? (
+            <Categories
+              isLoading={content.categoriesLoading}
+              data={content.categories}
+            />
+          ) : (
+            <ContentError />
+          )}
         </PrivateRoute>
 
         <PrivateRoute exact path={`${path}/:categoryId`}>
@@ -56,12 +53,13 @@ export default function DashboardRoute() {
         </PrivateRoute>
 
         <PrivateRoute exact path={`${path}/:categoryId/:playlistId`}>
-          <TracksRoute path={path}/>
+          <TracksRoute path={path} />
         </PrivateRoute>
 
-        <Route component={Error404}/>
+        <Route component={Error404} />
       </Switch>
-      <Player />
+      <PlayerOpen/>
+      {/* {auth.product !== "premium" ? <PlayerPremium /> : <PlayerOpen />} */}
     </Dashboard>
   );
 }

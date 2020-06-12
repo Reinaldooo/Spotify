@@ -75,10 +75,9 @@ export const addTrack = (track) => {
   };
 };
 
-export const removeTrack = (track) => {
+export const removeTrack = () => {
   return {
     type: REMOVE_TRACK,
-    payload: track
   };
 };
 
