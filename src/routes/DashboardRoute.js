@@ -92,8 +92,7 @@ export default function DashboardRoute() {
 
         <Route component={Error404} />
       </Switch>
-      <PlayerOpen/>
-      {/* {auth.product !== "premium" ? <PlayerPremium /> : <PlayerOpen />} */}
+      <PlayerOpen />
     </Dashboard>
   );
 }
