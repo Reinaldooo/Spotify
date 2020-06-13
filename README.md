@@ -7,7 +7,7 @@ Aplicativo de músicas utilizando a Web API do Spotify
 </p>
 
 <p  align="center">
-Devido à limitações da API, apenas um preview das músicas é reproduzido
+Devido à limitações da API, apenas uma preview das músicas é reproduzido
 </p> 
 
 #### O projeto foi criado em JavaScript utilizando as seguintes ferramentas:
