@@ -19,7 +19,7 @@ export default function Login() {
           Música para todos.
         </h2>
 
-        <a href={getAuthorization().url} className="login__auth-button">
+        <a href={getAuthorization()} className="login__auth-button">
           Entrar
         </a>
       </div>

@@ -26,7 +26,7 @@ const TracksRoute = ({ path }) => {
 
     dispatch(setPlaylistTracksLoading());
 
-    fetch(getPlaylistTracks(playlistId).url, requestOptions)
+    fetch(getPlaylistTracks(playlistId), requestOptions)
       .then(data => data.json())
       .then(data => dispatch(setPlaylistTracksSuccess(data.items)))
       .catch(error => {

@@ -32,7 +32,7 @@ export default function DashboardRoute() {
 
     dispatch(setCategoriesLoading())
 
-    fetch(getCategories().url, requestOptions)
+    fetch(getCategories(), requestOptions)
       .then((data) => data.json())
       .then(({ categories }) => {
         dispatch(setCategoriesSuccess(categories.items))

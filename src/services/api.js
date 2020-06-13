@@ -9,31 +9,25 @@ export const defaultFetchOptions = {
 };
 
 export function getAuthorization() {
-  return {
-    url: `${spotify.authorizationURL}?client_id=${spotify.clientId}${(spotify.scopes ? '&scope=' + encodeURIComponent(spotify.scopes) : '')}&redirect_uri=${encodeURIComponent(spotify.redirectUrl)}&response_type=token&show_dialog=true`,
-  }
+  return `${spotify.authorizationURL}?client_id=${spotify.clientId}${(spotify.scopes ? '&scope=' + encodeURIComponent(spotify.scopes) : '')}&redirect_uri=${encodeURIComponent(spotify.redirectUrl)}&response_type=token&show_dialog=true`
 }
 
 export function getUserProfile() {
-  return {
-    url: `${spotify.webAPI}/me`,
-  };
+  return `${spotify.webAPI}/me`
 }
 
 export function getCategories() {
-  return {
-    url: `${spotify.webAPI}/browse/categories?country=BR&locale=pt_BR`,
-  };
+  return `${spotify.webAPI}/browse/categories?country=BR&locale=pt_BR`
 }
 
 export function getCategoryPlaylists(id) {
-  return {
-    url: `${spotify.webAPI}/browse/categories/${id}/playlists`,
-  };
+  return `${spotify.webAPI}/browse/categories/${id}/playlists`
 }
 
 export function getPlaylistTracks(id) {
-  return {
-    url: `${spotify.webAPI}/playlists/${id}/tracks`,
-  };
+  return `${spotify.webAPI}/playlists/${id}/tracks`
+}
+
+export function getFeaturedPlaylists() {
+  return `${spotify.webAPI}/browse/featured-playlists`
 }

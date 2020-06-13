@@ -26,7 +26,7 @@ export default function AuthRoute() {
       headers: { 'Authorization': `Bearer ${hashData.accessToken}` }
     }
 
-    fetch(getUserProfile().url, requestOptions)
+    fetch(getUserProfile(), requestOptions)
       .then(data => data.json())
       .then(data => {
         let userData = {

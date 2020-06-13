@@ -25,7 +25,7 @@ export default function PlaylistsRoute({ path }) {
 
     dispatch(setPlaylistsLoading());
 
-    fetch(getCategoryPlaylists(categoryId).url, requestOptions)
+    fetch(getCategoryPlaylists(categoryId), requestOptions)
       .then((data) => data.json())
       .then(({ playlists }) => {
         dispatch(setPlaylistsSuccess(playlists.items))
