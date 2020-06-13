@@ -1,13 +1,27 @@
-.categories {
+.recents {
   display: flex;
   width: 100%;
 
   &__title {
     color: white;
-    display: block;
+    display: inline;
     font-size: 24px;
     font-weight: bold;
     margin: 0;
+  }
+
+  &__toggle {
+    cursor: pointer;
+    color: #bbb;
+    padding: 5px 10px;
+    margin-left: 15px;
+    border: 2px solid #444;
+    background-color: transparent;
+    border-radius: 10px;
+  }
+
+  &__toggle:focus {
+    outline: none;
   }
 
   &__content {

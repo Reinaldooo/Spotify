@@ -2,7 +2,12 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Switch, useRouteMatch, Route } from "react-router-dom";
 //
-import { defaultFetchOptions, getCategories, getUserRecentTracks } from "../services/api";
+import {
+  defaultFetchOptions,
+  getCategories,
+  getUserRecentTracks
+} from "../services/api";
+
 import {
   WelcomeBox,
   PrivateRoute,
@@ -11,12 +16,18 @@ import {
   ContentError,
   Browse
 } from "../components";
-import { Categories, Topbar, PlayerOpen, RecentTracks } from "../containers";
+
+import {
+  Topbar,
+  PlayerOpen
+} from "../containers";
+
 import {
   setBrowseLoading,
   setBrowseSuccess,
   setBrowseError,
 } from "../actions";
+
 import PlaylistsRoute from "../routes/PlaylistsRoute";
 import TracksRoute from "../routes/TracksRoute";
 

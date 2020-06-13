@@ -24,7 +24,7 @@ const contentInitialState = {
   browseLoading: false,
   playlistsLoading: false,
   tracksLoading: false,
-  hasErrored: false,
+  hasErrored: false
 };
 
 const contentReducer = (state = contentInitialState, action) => {
