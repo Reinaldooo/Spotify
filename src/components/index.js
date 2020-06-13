@@ -1,4 +1,5 @@
 import Logo from './Logo/Logo';
+import Browse from './Browse/Browse';
 import Dashboard from './Dashboard/Dashboard';
 import Loading from './Loading/Loading';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
@@ -10,6 +11,7 @@ import ContentError from './ContentError/ContentError';
 export {
   Logo,
   Loading,
+  Browse,
   PrivateRoute,
   WelcomeBox,
   Dashboard,

@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 // import { useDispatch, useSelector } from "react-redux";
 //
 import "./Categories.scss";
-import { clearPlaylists } from "../../actions";
-import { Loading } from "../../components";
+// import { clearPlaylists } from "../../actions";
 import CategoryItem from "./CategoryItem"
 // This is just here to pass the tests, since for some reason 
 // they can't read the 'data'prop
@@ -20,7 +19,7 @@ const sampleData = [
   }
 ]
 
-export default function Categories({ data = sampleData, isLoading }) {
+export default function Categories({ data = sampleData }) {
   // const dispatch = useDispatch()
   // const { playlists } = useSelector((state) => state.content);
 
@@ -33,27 +32,21 @@ export default function Categories({ data = sampleData, isLoading }) {
   return (
     <div className="categories" data-testid="categories">
       <div className="container">
-        {isLoading ? (
-          <Loading text="Carregando..." />
-        ) : (
-          <>
-            <h3 className="categories__title">Categorias</h3>
-            <div className="categories__content">
-              {
-                data.length > 0 &&
-                data.map(({ id, icons, name }) => (
-                  <CategoryItem 
-                    icon={icons[0]}
-                    id={id}
-                    key={id}
-                    name={name}
-                    url="/dashboard"
-                  />
-                ))
-              }
-            </div>
-          </>
-        )}
+        <h3 className="categories__title">Categorias</h3>
+        <div className="categories__content">
+          {
+            data.length > 0 &&
+            data.map(({ id, icons, name }) => (
+              <CategoryItem 
+                icon={icons[0]}
+                id={id}
+                key={id}
+                name={name}
+                url="/dashboard"
+              />
+            ))
+          }
+        </div>
       </div>
     </div>
   );

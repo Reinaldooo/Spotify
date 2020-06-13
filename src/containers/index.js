@@ -10,6 +10,7 @@ import Playlists from './Playlists/Playlists';
 import PlaylistItem from './Playlists/PlaylistItem';
 import Tracks from './Tracks/Tracks';
 import Track from './Tracks/Track';
+import RecentTracks from './RecentTracks/RecentTracks';
 
 export {
   App,
@@ -23,5 +24,6 @@ export {
   Playlists,
   PlaylistItem,
   Tracks,
-  Track
+  Track,
+  RecentTracks
 }

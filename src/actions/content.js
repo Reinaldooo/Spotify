@@ -1,6 +1,6 @@
-export const CATEGORIES_LOADING = "CATEGORIES_LOADING";
-export const CATEGORIES_SUCCESS = "CATEGORIES_SUCCESS";
-export const CATEGORIES_ERROR = "CATEGORIES_ERROR";
+export const BROWSE_LOADING = "BROWSE_LOADING";
+export const BROWSE_SUCCESS = "BROWSE_SUCCESS";
+export const BROWSE_ERROR = "BROWSE_ERROR";
 export const PLAYLISTS_LOADING = "PLAYLISTS_LOADING";
 export const PLAYLISTS_SUCCESS = "PLAYLISTS_SUCCESS";
 export const PLAYLISTS_ERROR = "PLAYLISTS_ERROR";
@@ -12,22 +12,22 @@ export const PLAYLIST_TRACKS_CLEAR = "PLAYLIST_TRACKS_CLEAR";
 export const ADD_TRACK = "ADD_TRACK";
 export const REMOVE_TRACK = "REMOVE_TRACK";
 
-export const setCategoriesLoading = () => {
+export const setBrowseLoading = () => {
   return {
-    type: CATEGORIES_LOADING
+    type: BROWSE_LOADING
   };
 };
 
-export const setCategoriesSuccess = (data) => {
+export const setBrowseSuccess = (data) => {
   return {
-    type: CATEGORIES_SUCCESS,
+    type: BROWSE_SUCCESS,
     payload: data
   };
 };
 
-export const setCategoriesError = () => {
+export const setBrowseError = () => {
   return {
-    type: PLAYLISTS_ERROR,
+    type: BROWSE_ERROR,
   };
 };
 

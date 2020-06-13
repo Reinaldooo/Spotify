@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 // import { useDispatch, useSelector } from "react-redux";
 //
 import "./Playlists.scss";
 import { Loading, RouteHeader } from "../../components";
-import { clearTracks } from "../../actions";
+// import { clearTracks } from "../../actions";
 import PlaylistItem from "./PlaylistItem";
 // This is just here to pass the tests, since for some reason 
 // they can't read the 'data'prop

@@ -16,6 +16,10 @@ export function getUserProfile() {
   return `${spotify.webAPI}/me`
 }
 
+export function getUserRecentTracks() {
+  return `${spotify.webAPI}/me/top/tracks?time_range=short_term&limit=10`
+}
+
 export function getCategories() {
   return `${spotify.webAPI}/browse/categories?country=BR&locale=pt_BR`
 }

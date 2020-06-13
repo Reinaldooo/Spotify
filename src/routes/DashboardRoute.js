@@ -2,19 +2,20 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Switch, useRouteMatch, Route } from "react-router-dom";
 //
-import { defaultFetchOptions, getCategories } from "../services/api";
+import { defaultFetchOptions, getCategories, getUserRecentTracks } from "../services/api";
 import {
   WelcomeBox,
   PrivateRoute,
   Dashboard,
   Error404,
   ContentError,
+  Browse
 } from "../components";
-import { Categories, Topbar, PlayerOpen } from "../containers";
+import { Categories, Topbar, PlayerOpen, RecentTracks } from "../containers";
 import {
-  setCategoriesLoading,
-  setCategoriesSuccess,
-  setCategoriesError,
+  setBrowseLoading,
+  setBrowseSuccess,
+  setBrowseError,
 } from "../actions";
 import PlaylistsRoute from "../routes/PlaylistsRoute";
 import TracksRoute from "../routes/TracksRoute";
@@ -30,15 +31,26 @@ export default function DashboardRoute() {
       headers: { Authorization: `Bearer ${auth.accessToken}` },
     };
 
-    dispatch(setCategoriesLoading())
+    dispatch(setBrowseLoading())
 
-    fetch(getCategories(), requestOptions)
-      .then((data) => data.json())
-      .then(({ categories }) => {
-        dispatch(setCategoriesSuccess(categories.items))
+    function fetchAll() {
+      return Promise.all([
+        fetch(getCategories(), requestOptions)
+          .then((data) => data.json()),
+        fetch(getUserRecentTracks(), requestOptions)
+          .then((data) => data.json())
+      ])
+    }
+
+    fetchAll()
+      .then(([{ categories }, recentTracks]) => {
+        dispatch(setBrowseSuccess({
+          categories: categories.items,
+          recentTracks: recentTracks.items
+        }))
       })
       .catch((error) => {
-        dispatch(setCategoriesError())
+        dispatch(setBrowseError())
       });
   }, [auth, dispatch]);
 
@@ -49,9 +61,10 @@ export default function DashboardRoute() {
         <PrivateRoute exact path={path}>
           <WelcomeBox name={auth.name} />
           {!content.hasErrored ? (
-            <Categories
-              isLoading={content.categoriesLoading}
-              data={content.categories}
+            <Browse
+              categoriesData={content.categories}
+              recentData={content.recentTracks}
+              isLoading={content.browseLoading}
             />
           ) : (
             <ContentError />

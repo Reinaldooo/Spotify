@@ -1,7 +1,7 @@
 import {
-  CATEGORIES_LOADING,
-  CATEGORIES_SUCCESS,
-  CATEGORIES_ERROR,
+  BROWSE_LOADING,
+  BROWSE_SUCCESS,
+  BROWSE_ERROR,
   PLAYLISTS_LOADING,
   PLAYLISTS_SUCCESS,
   PLAYLISTS_ERROR,
@@ -16,11 +16,12 @@ import {
 
 const contentInitialState = {
   categories: [],
+  recentTracks: [],
   playlists: [],
   tracks: [],
   playingNowId: null,
   playingNowTrack: null,
-  categoriesLoading: false,
+  browseLoading: false,
   playlistsLoading: false,
   tracksLoading: false,
   hasErrored: false,
@@ -30,21 +31,22 @@ const contentReducer = (state = contentInitialState, action) => {
   const { type, payload } = action;
   //
   switch (type) {
-    case CATEGORIES_LOADING:
+    case BROWSE_LOADING:
       return {
         ...state,
-        categoriesLoading: true,
+        browseLoading: true,
       };
-    case CATEGORIES_SUCCESS:
+    case BROWSE_SUCCESS:
       return {
         ...state,
-        categoriesLoading: false,
-        categories: payload,
+        browseLoading: false,
+        categories: payload.categories,
+        recentTracks: payload.recentTracks,
       };
-    case CATEGORIES_ERROR:
+    case BROWSE_ERROR:
       return {
         ...state,
-        categoriesLoading: false,
+        browseLoading: false,
         hasErrored: true,
       };
     case PLAYLISTS_LOADING:

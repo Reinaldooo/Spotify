@@ -10,7 +10,11 @@
   padding: 5px;
   position: relative;
   user-select: none;
-  width: 100%;
+  width: 50%;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 
   &.is-playing {
     .track__play {
