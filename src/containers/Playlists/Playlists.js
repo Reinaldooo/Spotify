@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 //
 import "./Playlists.scss";
 import { Loading, RouteHeader } from "../../components";
@@ -51,14 +51,14 @@ export default function Playlists({
   isLoading,
   path
 }) {
-  const dispatch = useDispatch()
-  const { tracks } = useSelector((state) => state.content);
+  // const dispatch = useDispatch()
+  // const { tracks } = useSelector((state) => state.content);
 
-  useEffect(() => {
-    // Clear tracks so the next playlist clicked doesn't have 
-    // wrong values on first render
-    if(tracks[0]) dispatch(clearTracks());
-  });
+  // useEffect(() => {
+  //   // Clear tracks so the next playlist clicked doesn't have 
+  //   // wrong values on first render
+  //   if(tracks[0]) dispatch(clearTracks());
+  // });
 
   return (
     <div className="playlists" data-testid="playlists">

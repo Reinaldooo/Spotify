@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 //
 import "./Categories.scss";
 import { clearPlaylists } from "../../actions";
@@ -21,14 +21,14 @@ const sampleData = [
 ]
 
 export default function Categories({ data = sampleData, isLoading }) {
-  const dispatch = useDispatch()
-  const { playlists } = useSelector((state) => state.content);
+  // const dispatch = useDispatch()
+  // const { playlists } = useSelector((state) => state.content);
 
-  useEffect(() => {
-    // Clear playlists so the next playlist clicked doesn't have 
-    // wrong values on first render
-    if(playlists[0]) dispatch(clearPlaylists());
-  });
+  // useEffect(() => {
+  //   // Clear playlists so the next playlist clicked doesn't have 
+  //   // wrong values on first render
+  //   if(playlists[0]) dispatch(clearPlaylists());
+  // });
 
   return (
     <div className="categories" data-testid="categories">
