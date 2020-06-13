@@ -21,12 +21,14 @@ um token é recebido e utilizado em todas as requisições à API.
 
 ![implicit flow](/img/implicit.png)
   
-#### Rodar o projeto
+##### Rodar o projeto
 
 * Para rodar a versão hospedada, clique [aqui](https://spotify-reinaldo.netlify.app/).
 
 ##### Para rodar na sua máquina:
 
+* Caso ainda não possua o `npm`, a forma mais fácil de obtê-lo é instalando o [NodeJS](https://nodejs.org/en/download/)
+* O `git` também é necessário, você pode baixá-lo [aqui](https://git-scm.com/)
 * Faça o Download ou clone o repo usando `git clone https://github.com/Reinaldooo/Spotify.git` em uma janela de terminal
 * Entre na pasta com `cd Spotify`
 * Instale as dependências com `npm i`
