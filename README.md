@@ -3,32 +3,27 @@
 </p>
 
 <p  align="center">
-PixCatalog is a category-based site for you to upload your favourite photos.
+Aplicativo baseado no Spotify utilizando a Web API
 </p> 
 
-![Example PNG](/Example.png)
+### O projeto foi criado em JavaScript utilizando as seguintes ferramentas:
 
-<p  align="center">
-The app is fully responsive, so you can use it on your phone or tablet.
-</p>
-
-### This project was created using Javascript and Python with the help of the following tools:
-
-* ReactJS
+* ReactJS utilizando hooks
 * React Router
-* Styled Components
-* Google Oauth API
-* Flask
-* SQLAlchemy
-* Pillow
+* Redux
+* Redux Persist
+* Spotify Web API
 
-### App Design
+### Processo de login
 
-The development focus was to create a lightweight and elegant app, thats why ReactJS was chosen for the front-end, using React Router to guarantee the smoothness of a single-page app. On the server side we have Flask taking care of requests and security, while SQLAlchemy handles the database work.
+Para o processo de login é utilizado o processo 'Implicit Grant Flow', dessa forma o app solicita a permissão do usuário e em caso de sucesso 
+um token é recebido e utilizado em todas as requisições à API.
+
+![implicit flow](/img/implicit.png)
   
-### Run this project
+### Rodar o projeto
 
-* To load it via Heroku, click [here](https://pixcatalog.herokuapp.com/).
+* Para rodar a versão hospedada, clique [aqui](https://pixcatalog.herokuapp.com/).
 * Guest uploads will be erased after 30 seconds.
 
 ##### To load it in your local machine:
